@@ -1,0 +1,13 @@
+{
+  "name": "Carmilla",
+  "version": "1.2.1",
+  "description": "The cutest discord bot",
+  "main": "bot.js",
+  "author": "Shisho",
+  "dependencies": {
+    "discord.io": "github:woor/discord.io#gateway_v6",
+    "discord.js": "^11.3.2",
+    "npm": "^5.8.0",
+    "winston": "^2.4.1"
+  }
+}
