@@ -10,7 +10,7 @@ logger.add(logger.transports.Console, {
 logger.level = 'debug';
 // Initialize Discord Bot
 var bot = new Discord.Client();
-bot.login(process.env.auth.token);
+bot.login(process.env.BOT_TOKEN);
    
 bot.on('ready', () => {
 	bot.user.setStatus('online', '!guide for help >3<')
