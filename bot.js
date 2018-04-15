@@ -262,7 +262,7 @@ bot.on('message', (message) => {
 		}
 	}
 	//reacting to posts in salt-channel
-	if(((message.channel.id == auth.artchannel) && (message.attachments.size == 1)) && (!message.author.bot))
+	if(((message.channel.id == auth.saltchannel) && (message.attachments.size == 1)) && (!message.author.bot))
 	{
 		var rand = Math.floor(Math.random() * 100) + 1; // returns a number between 1 and 100
 		if( rand > 0 && rand <= 50)
