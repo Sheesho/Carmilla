@@ -213,7 +213,7 @@ bot.on('message', (message) => {
 		{
 			var txt = message.content.substring(5,message.length);
 			message.delete();
-			message.channel.send(txt);
+			message.channel.send(txt + ' <:blobkiss:375218160225222656>');
 		} 
 	}
 	if((message.content.substring(0,16) == 'for you Carmilla') && (!message.author.bot))
