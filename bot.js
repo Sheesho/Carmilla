@@ -273,15 +273,15 @@ bot.on('message', (message) => {
 });
 
 //adding my role when I come back
-bot.on('guildmemberAdd', guildMember => {
+bot.on('guildMemberAdd', guildMember => {
 	if(guildMember.id == auth.owner)
 	{
-		guildMember.addRole(guildMember.guild.roles.find("name", "Shipwright")).catch(console.error);
-		guildMember.addRole(guildMember.guild.roles.find("name", "Friends")).catch(console.error);
-		guildMember.addRole(guildMember.guild.roles.find("name", "Dark")).catch(console.error);
-		guildMember.addRole(guildMember.guild.roles.find("name", "on FBI list")).catch(console.error);
-		guildMember.addRole(guildMember.guild.roles.find("name", "Announcements")).catch(console.error);
-		guildMember.addRole(guildMember.guild.roles.find("name", "HL-player")).catch(console.error);
-		guildMember.addRole(guildMember.guild.roles.find("name", "Disgusting Lucksack")).catch(console.error);
+		guildMember.addRole(guildMember.guild.roles.find("name", "Shipwright")).catch(void(0));
+		guildMember.addRole(guildMember.guild.roles.find("name", "Friends")).catch(void(0));
+		guildMember.addRole(guildMember.guild.roles.find("name", "Dark")).catch(void(0));
+		guildMember.addRole(guildMember.guild.roles.find("name", "on FBI list")).catch(void(0));
+		guildMember.addRole(guildMember.guild.roles.find("name", "Announcements")).catch(void(0));
+		guildMember.addRole(guildMember.guild.roles.find("name", "HL-player")).catch(void(0));
+		guildMember.addRole(guildMember.guild.roles.find("name", "Disgusting Lucksack")).catch(void(0));
 	}
 });
