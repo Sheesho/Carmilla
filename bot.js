@@ -18,6 +18,11 @@ bot.on('ready', () => {
 	bot.user.setActivity("!guide for help")
 });
 bot.on('message', (message) => {
+	var emote = ' <:blobkiss:375218160225222656>';
+   if(bot.guild.id == auth.umi)
+   {
+	emote = '<:yug:440786722561982464>';
+   }
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
 	var special = "";
@@ -32,67 +37,85 @@ bot.on('message', (message) => {
 				special = message.author;
 				switch(message.author.id) {
 					case auth.owner:
-						special = 'Mr Developer';
+						special = ' Mr Developer ';
 					break;
 					case auth.yoruno:
-						special = 'Yoruno *blushes*';
+						special = ' Yoruno *blushes* ';
 					break;
 					case auth.zaaap:
-						special = 'Mr F.O';
+						special = ' Mr F.O ';
 					break;
 					case auth.giggles:
-						special = "Onii-chan";
+						special = " Onii-chan ";
 					break;
 					case auth.neppy:
-						special = "Uncle Nâz";
+						special = " Uncle Nâz ";
+					break;
+					case auth.udon:
+						special = " Danchou ";
+					break;
+					case auth.yuki:
+						special = "... uh, I mean 'Guten morgen, mein Fuhrer";
 					break;
 				}
 				//end of special hello cases
-				message.channel.send('Hello~ ' + special + ' <:blobkiss:375218160225222656>');
+				message.channel.send('Hello~' + special + emote);
 			break;
 			//the howyoudoing command.
 			
 			case 'how are you doing':
-				special = 'Carmilla is always happy <:blobkiss:375218160225222656>';
+				special = 'Carmilla is always happy ' + emote;
 				switch(message.author.id){
 				case auth.owner:
 					special = "Carmilla is always happy, thanks for the concern Mr Developer <:blobkiss:375218160225222656>";
 				break;
 				case auth.giggles:
-					special = "Carmilla is always happy Onii-chan <:blobkiss:375218160225222656>";
+					special = "Carmilla is always happy Onii-chan " + emote;
 				break;
 				case auth.yoruno:
-					special = "*blushes* I am very happy right now <:blobkiss:375218160225222656>";
+					special = "*blushes* I am very happy right now " + emote;
 				break;
 				case auth.neppy: 
-					special: "Carmilla is always happy Uncle Nâz <:blobkiss:375218160225222656>";
+					special = "Carmilla is always happy Uncle Nâz " + emote;
+				break;
+				case auth.udon: 
+					special = "Carmilla is always happy Danchou " + emote;
+				break;
+				case auth.yuki: 
+					special = "Carmilla is ready to invade Poland mein Fuhrer " + emote;
 				break;
 				}
 				message.channel.send(special);
 			break;
-			case 'how':
-				special = 'Carmilla is always happy <:blobkiss:375218160225222656>';
+			case 'how are you doing':
+				special = 'Carmilla is always happy ' + emote;
 				switch(message.author.id){
 				case auth.owner:
 					special = "Carmilla is always happy, thanks for the concern Mr Developer <:blobkiss:375218160225222656>";
 				break;
 				case auth.giggles:
-					special = "Carmilla is always happy Onii-chan <:blobkiss:375218160225222656>";
+					special = "Carmilla is always happy Onii-chan " + emote;
 				break;
 				case auth.yoruno:
-					special = "*blushes* I am very happy right now <:blobkiss:375218160225222656>";
+					special = "*blushes* I am very happy right now " + emote;
 				break;
 				case auth.neppy: 
-					special: "Carmilla is always happy Uncle Nâz <:blobkiss:375218160225222656>";
+					special = "Carmilla is always happy Uncle Nâz " + emote;
 				break;
-				};
+				case auth.udon: 
+					special = "Carmilla is always happy Danchou " + emote;
+				break;
+				case auth.yuki: 
+					special = "Carmilla is ready to invade Poland mein Fuhrer " + emote;
+				break;
+				}
 				message.channel.send(special);
 			break;	
 			//case for adding a role.
 			case 'up':
 				if(message.member.roles.has(message.guild.roles.find("name", "Up!")))
 				{
-					message.channel.send('Sorry, it\'s only one "Up!" role per person~ <:blobkiss:375218160225222656>');
+					message.channel.send('Sorry, it\'s only one "Up!" role per person~ ' + emote);
 				}
 				else
 				{
@@ -112,9 +135,15 @@ bot.on('message', (message) => {
 						case auth.neppy:
 							special = " Uncle Nâz";
 						break;
+						case auth.udon:
+							special = " Danchou";
+						break;
+						case auth.yuki:
+							special = " mein Fuhrer";
+						break;
 					}
 					message.member.addRole(message.guild.roles.find("name", "Up!")).catch(console.error);
-					message.channel.send('"Up!" role given' + special + '~ <:blobkiss:375218160225222656>');
+					message.channel.send('"Up!" role given' + special + '~ ' + emote);
 				}	
 			break;
 			//case for removing a role.
@@ -139,9 +168,15 @@ bot.on('message', (message) => {
 						case auth.neppy:
 							special = ", Uncle Nâz's ";
 						break;
+						case auth.udon:
+							special = " Danchou";
+						break;
+						case auth.yuki:
+							special = " mein Fuhrer";
+						break;
 					}
 					message.member.removeRole(message.guild.roles.find("name", "Up!")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"Up!" role~ <:blobkiss:375218160225222656>');
+					message.channel.send('Goodbye' + special + '"Up!" role~ ' + emote);
 				//}
 				//else {
 					//message.channel.send('You don\'t have the "Up!" role, too bad for you~ <:blobkiss:375218160225222656>');
@@ -151,7 +186,7 @@ bot.on('message', (message) => {
 			case 'fbhi':
 				if(message.member.roles.has(message.guild.roles.find("name", "on FBI list")))
 				{
-					message.channel.send('Sorry, it\'s only one "on FBI list" role per person~ <:blobkiss:375218160225222656>');
+					message.channel.send('Sorry, it\'s only one "on FBI list" role per person~ ' + emote);
 				}
 				else
 				{
@@ -171,9 +206,15 @@ bot.on('message', (message) => {
 						case auth.neppy:
 							special = " Uncle Nâz";
 						break;
+						case auth.udon:
+							special = " Danchou";
+						break;
+						case auth.yuki:
+							special = " mein Fuhrer";
+						break;
 					}
-					message.member.addRole(message.guild.roles.find("name", "on FBI list")).catch(console.error);
-					message.channel.send('"on FBI list" role given' + special + '~ <:blobkiss:375218160225222656>');
+					message.member.addRole(message.guild.roles.find("name", "on FBI list")).catch(void(0));
+					message.channel.send('"on FBI list" role given' + special + '~ ' + emote);
 				}	
 			break;
 			//removing it
@@ -198,9 +239,15 @@ bot.on('message', (message) => {
 						case auth.neppy:
 							special = ", Uncle Nâz's ";
 						break;
+						case auth.udon:
+							special = " Danchou's ";
+						break;
+						case auth.yuki:
+							special = " mein Fuhrer's ";
+						break;
 					}
 					message.member.removeRole(message.guild.roles.find("name", "on FBI list")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"on FBI list" role~ <:blobkiss:375218160225222656>');
+					message.channel.send('Goodbye' + special + '"on FBI list" role~ ' + emote);
 			break;
 			//the list of available commands.
 			case 'guide':
@@ -213,7 +260,7 @@ bot.on('message', (message) => {
 		{
 			var txt = message.content.substring(5,message.length);
 			message.delete();
-			message.channel.send(txt + ' <:blobkiss:375218160225222656>');
+			message.channel.send(txt + emote);
 		} 
 	}
 	if((message.content.substring(0,16) == 'for you Carmilla') && (!message.author.bot))
@@ -226,16 +273,22 @@ bot.on('message', (message) => {
 				special = " *deeply*";
 			break;
 			case auth.zaaap:
-				special = " Heehee, thanks Mr Zaaap~"
+				special = " Heehee, thanks Mr Zaaap~";
 			break;
 			case auth.giggles: 
-				special = " Thanks, Onii-chan~"
+				special = " Thanks, Onii-chan~";
 			break;
 			case auth.giggles: 
-				special = " Thanks, Uncle Nâz~"
+				special = " Thanks, Uncle Nâz~";
 			break;
 			case auth.el: 
-				special = " Heehee, I just happens to have one for you too El <:blobkiss:375218160225222656>"
+				special = " Heehee, I just happens to have one for you too El" + emote;
+			break;
+			case auth.udon:
+				special = "Thanks, Danchou~";
+			break;
+			case auth.yuki:
+				special = "Danke, mein Fuhrer~";
 			break;
 		}
 		message.channel.send('*blushes*' + special);
