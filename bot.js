@@ -18,11 +18,11 @@ bot.on('ready', () => {
 	bot.user.setActivity("!guide for help")
 });
 bot.on('message', (message) => {
-	var emote = ' <:blobkiss:375218160225222656>';
-   if(bot.guild.id == auth.umi)
-   {
-	emote = '<:yug:440786722561982464>';
-   }
+   var emote = '<:blobkiss:375218160225222656>';	
+   //if(bot.guild.id == auth.umi)
+   //{
+	//emote = '<:yug:440786722561982464>';
+   //}
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
 	var special = "";
@@ -55,7 +55,7 @@ bot.on('message', (message) => {
 						special = " Danchou ";
 					break;
 					case auth.yuki:
-						special = "... uh, I mean 'Guten morgen, mein Fuhrer";
+						special = "... uh, I mean 'Guten morgen, mein Fuhrer ";
 					break;
 				}
 				//end of special hello cases
@@ -67,7 +67,7 @@ bot.on('message', (message) => {
 				special = 'Carmilla is always happy ' + emote;
 				switch(message.author.id){
 				case auth.owner:
-					special = "Carmilla is always happy, thanks for the concern Mr Developer <:blobkiss:375218160225222656>";
+					special = "Carmilla is always happy, thanks for the concern Mr Developer " + emote;
 				break;
 				case auth.giggles:
 					special = "Carmilla is always happy Onii-chan " + emote;
@@ -91,7 +91,7 @@ bot.on('message', (message) => {
 				special = 'Carmilla is always happy ' + emote;
 				switch(message.author.id){
 				case auth.owner:
-					special = "Carmilla is always happy, thanks for the concern Mr Developer <:blobkiss:375218160225222656>";
+					special = "Carmilla is always happy, thanks for the concern Mr Developer " + emote;
 				break;
 				case auth.giggles:
 					special = "Carmilla is always happy Onii-chan " + emote;
