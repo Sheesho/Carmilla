@@ -19,10 +19,10 @@ bot.on('ready', () => {
 });
 bot.on('message', (message) => {
    var emote = '<:blobkiss:375218160225222656>';	
-   //if(bot.guild.id == auth.umi)
-   //{
-	//emote = '<:yug:440786722561982464>';
-   //}
+   if(message.guild.id == auth.umi)
+   {
+	emote = '<:yug:440786722561982464>';
+   }
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
 	var special = "";
