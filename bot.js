@@ -21,7 +21,7 @@ bot.on('message', (message) => {
    var emote = '<:blobkiss:375218160225222656>';	
    if(message.guild.id == auth.umi)
    {
-	emote = '<:yug:440786722561982464>';
+	emote = bot.emojis.find("name", "yugu").toString();
    }
     // Our bot needs to know if it will execute a command
     // It will listen for messages that will start with `!`
