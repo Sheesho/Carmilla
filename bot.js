@@ -260,7 +260,7 @@ bot.on('message', (message) => {
 		{
 			var txt = message.content.substring(5,message.length);
 			message.delete();
-			message.channel.send(txt + emote);
+			message.channel.send(txt + " " + emote);
 		} 
 	}
 	if((message.content.substring(0,16) == 'for you Carmilla') && (!message.author.bot))
