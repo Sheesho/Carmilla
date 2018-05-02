@@ -55,7 +55,7 @@ bot.on('message', (message) => {
 						special = " Danchou ";
 					break;
 					case auth.yuki:
-						special = "... uh, I mean 'Guten morgen, mein Fuhrer ";
+						special = "... uh, I mean 'Guten Morgen, mein Führer ";
 					break;
 				}
 				//end of special hello cases
