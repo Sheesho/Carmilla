@@ -87,7 +87,7 @@ bot.on('message', (message) => {
 				}
 				message.channel.send(special);
 			break;
-			case 'how are you doing':
+			case 'how':
 				special = 'Carmilla is always happy ' + emote;
 				switch(message.author.id){
 				case auth.owner:
