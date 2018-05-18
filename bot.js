@@ -162,7 +162,7 @@ bot.on('message', (message) => {
 				}	
 			break;
 			case 'chicken':
-				if(message.member.roles.find("name", "Chicken))
+				if(message.member.roles.find("name", "Chicken"))
 				{
 					message.member.removeRole(message.guild.roles.find("name", "Chicken")).catch(console.error);
 					message.channel.send('Goodbye' + special + '"Chicken" role~ ' + emote);
