@@ -17,6 +17,7 @@ bot.on('ready', () => {
 	console.log('Shisho is ready to go');
 	bot.user.setActivity("!guide for help")
 });
+
 bot.on('message', (message) => {
    var emote = '<:blobkiss:375218160225222656>';	
    if(message.guild.id == auth.umi)
@@ -112,145 +113,7 @@ bot.on('message', (message) => {
 				message.channel.send(special);
 			break;	
 			//case for adding a role.
-			case 'up':
-				if(message.member.roles.has(message.guild.roles.find("name", "Up!")))
-				{
-					message.channel.send('Sorry, it\'s only one "Up!" role per person~ ' + emote);
-				}
-				else
-				{
-					switch(message.author.id){
-						case auth.owner:
-							special = " Mr Developer";
-						break;
-						case auth.zaaap:
-							special = " Mr Zaaap";
-						break;
-						case auth.giggles:
-							special = " Onii-chan";
-						break;
-						case auth.yoruno:
-							special = " Mr Yoruno";
-						break;
-						case auth.neppy:
-							special = " Uncle Nâz";
-						break;
-						case auth.udon:
-							special = " Danchou";
-						break;
-						case auth.yuki:
-							special = " mein Fuhrer";
-						break;
-					}
-					message.member.addRole(message.guild.roles.find("name", "Up!")).catch(console.error);
-					message.channel.send('"Up!" role given' + special + '~ ' + emote);
-				}	
-			break;
-			//case for removing a role.
-			case 'down':
-			//checking if the user got the role:
-				//if(message.member.roles.has(message.guild.roles.find("name", "Up!")))
-				//{
-					special = " ";
-					switch(message.author.id){
-						case auth.owner:
-							special = ", Mr Developer's ";
-						break;
-						case auth.zaaap:
-							special = ", Mr Zaaap's ";
-						break;
-						case auth.giggles:
-							special = ", Onii-chan's ";
-						break;
-						case auth.yoruno:
-							special = ", Mr Yoruno's ";
-						break;
-						case auth.neppy:
-							special = ", Uncle Nâz's ";
-						break;
-						case auth.udon:
-							special = " Danchou";
-						break;
-						case auth.yuki:
-							special = " mein Fuhrer";
-						break;
-					}
-					message.member.removeRole(message.guild.roles.find("name", "Up!")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"Up!" role~ ' + emote);
-				//}
-				//else {
-					//message.channel.send('You don\'t have the "Up!" role, too bad for you~ <:blobkiss:375218160225222656>');
-				//}
-			break;
-			//adding "NSFW" role
-			case 'fbhi':
-				if(message.member.roles.has(message.guild.roles.find("name", "on FBI list")))
-				{
-					message.channel.send('Sorry, it\'s only one "on FBI list" role per person~ ' + emote);
-				}
-				else
-				{
-					switch(message.author.id){
-						case auth.owner:
-							special = " Mr Developer";
-						break;
-						case auth.zaaap:
-							special = " Mr Zaaap";
-						break;
-						case auth.giggles:
-							special = " Onii-chan";
-						break;
-						case auth.yoruno:
-							special = " Mr Yoruno";
-						break;
-						case auth.neppy:
-							special = " Uncle Nâz";
-						break;
-						case auth.udon:
-							special = " Danchou";
-						break;
-						case auth.yuki:
-							special = " mein Fuhrer";
-						break;
-					}
-					message.member.addRole(message.guild.roles.find("name", "on FBI list")).catch(void(0));
-					message.channel.send('"on FBI list" role given' + special + '~ ' + emote);
-				}	
-			break;
-			//removing it
-			case 'fbbye':
-			//checking if the user got the role:
-				//if(message.member.roles.has(message.guild.roles.find("name", "Up!")))
-				//{
-					special = " ";
-					switch(message.author.id){
-						case auth.owner:
-							special = ", Mr Developer's ";
-						break;
-						case auth.zaaap:
-							special = ", Mr Zaaap's ";
-						break;
-						case auth.giggles:
-							special = ", Onii-chan's ";
-						break;
-						case auth.yoruno:
-							special = ", Mr Yoruno's ";
-						break;
-						case auth.neppy:
-							special = ", Uncle Nâz's ";
-						break;
-						case auth.udon:
-							special = " Danchou's ";
-						break;
-						case auth.yuki:
-							special = " mein Fuhrer's ";
-						break;
-					}
-					message.member.removeRole(message.guild.roles.find("name", "on FBI list")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"on FBI list" role~ ' + emote);
-			break;
-			case 'ulti':
-				switch(message.author.id){
+			switch(message.author.id){
 					case auth.owner:
 						special = " Mr Developer";
 					break;
@@ -273,20 +136,46 @@ bot.on('message', (message) => {
 						special = " mein Fuhrer";
 					break;
 				}
-				if(message.member.roles.has(message.guild.roles.find("name", "UltiSlayer")))
+			case 'up':
+				if(message.member.roles.find("name", "Up!"))
 				{
-					message.member.removeRole(message.guild.roles.find("name", "UltiSlayer")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"UltiSlayer" role~ ' + emote);
+					message.member.removeRole(message.guild.roles.find("name", "Up!")).catch(console.error);
+					message.channel.send('Goodbye' + special + '"Up!" role~ ' + emote);
 				}
 				else
 				{
-					message.member.addRole(message.guild.roles.find("name", "UltiSlayer")).catch(console.error);
-					message.channel.send('"UltiSlayer" role given' + special + '~ ' + emote);
+					message.member.addRole(message.guild.roles.find("name", "Up!")).catch(console.error);
+					message.channel.send('"Up!" role given' + special + '~ ' + emote);
+				}	
+			break;
+			//adding "NSFW" role
+			case 'fbi':
+				if(message.member.roles.find("name", "on FBI list"))
+				{
+					message.member.removeRole(message.guild.roles.find("name", "on FBI list")).catch(console.error);
+					message.channel.send('Goodbye' + special + '"on FBI list" role~ ' + emote);
+				}
+				else
+				{
+					message.member.addRole(message.guild.roles.find("name", "on FBI list")).catch(void(0));
+					message.channel.send('"on FBI list" role given' + special + '~ ' + emote);
+				}	
+			break;
+			case 'chicken':
+				if(message.member.roles.find("name", "Chicken))
+				{
+					message.member.removeRole(message.guild.roles.find("name", "Chicken")).catch(console.error);
+					message.channel.send('Goodbye' + special + '"Chicken" role~ ' + emote);
+				}
+				else
+				{
+					message.member.addRole(message.guild.roles.find("name", "Chicken")).catch(console.error);
+					message.channel.send('"Chicken" role given' + special + '~ ' + emote);
 				}
 			break;
 			//the list of available commands.
 			case 'guide':
-				message.channel.send('```To play with Carmilla use "!" followed by one of those commands:\n\n"hello"\n"say"\n"up"\n"down"\n"fbhi"\n"fbbye\n"how are you doing" or just "how"\n(all commands are case-sensitive)```');
+				message.channel.send('```To play with Carmilla use "!" followed by one of those commands:\n\n"hello"\n"say"\n"up"\n"fbi"\n"chicken"\n"how are you doing" or just "how"\n(all commands are case-sensitive)\n\nI\'ve been created by Shisho#7817 to be a community member-bot, please don\'t bully Carmilla (^3^)```');
 			break;
             // Just add any case commands if you want to..
         }
@@ -317,13 +206,13 @@ bot.on('message', (message) => {
 				special = " Thanks, Uncle Nâz~";
 			break;
 			case auth.el: 
-				special = " Heehee, I just happens to have one for you too El" + emote;
+				special = " Heehee, I just happen to have one for you too El" + emote;
 			break;
 			case auth.udon:
 				special = "Thanks, Danchou~";
 			break;
 			case auth.yuki:
-				special = "Danke, mein Fuhrer~";
+				special = "Danke, mein Führer~";
 			break;
 		}
 		message.channel.send('*blushes*' + special);
@@ -353,10 +242,10 @@ bot.on('message', (message) => {
 	if(((message.channel.id == auth.saltchannel) && (message.attachments.size == 1)) && (!message.author.bot))
 	{
 		var rand = Math.floor(Math.random() * 100) + 1; // returns a number between 1 and 100
-		if( rand > 0 && rand <= 50)
+		if( rand > 0 && rand <= 30)
 		{
 			message.react("427404778436427786").catch(void(0));
-        }
+        	}
 	}
 });
 
