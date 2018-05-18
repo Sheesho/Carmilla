@@ -249,6 +249,41 @@ bot.on('message', (message) => {
 					message.member.removeRole(message.guild.roles.find("name", "on FBI list")).catch(console.error);
 					message.channel.send('Goodbye' + special + '"on FBI list" role~ ' + emote);
 			break;
+			case 'ulti':
+				switch(message.author.id){
+					case auth.owner:
+						special = " Mr Developer";
+					break;
+					case auth.zaaap:
+						special = " Mr Zaaap";
+					break;
+					case auth.giggles:
+						special = " Onii-chan";
+					break;
+					case auth.yoruno:
+						special = " Mr Yoruno";
+					break;
+					case auth.neppy:
+						special = " Uncle Nâz";
+					break;
+					case auth.udon:
+						special = " Danchou";
+					break;
+					case auth.yuki:
+						special = " mein Fuhrer";
+					break;
+				}
+				if(message.member.roles.has(message.guild.roles.find("name", "UltiSlayer")))
+				{
+					message.member.removeRole(message.guild.roles.find("name", "UltiSlayer")).catch(console.error);
+					message.channel.send('Goodbye' + special + '"UltiSlayer" role~ ' + emote);
+				}
+				else
+				{
+					message.member.addRole(message.guild.roles.find("name", "UltiSlayer")).catch(console.error);
+					message.channel.send('"UltiSlayer" role given' + special + '~ ' + emote);
+				}
+			break;
 			//the list of available commands.
 			case 'guide':
 				message.channel.send('```To play with Carmilla use "!" followed by one of those commands:\n\n"hello"\n"say"\n"up"\n"down"\n"fbhi"\n"fbbye\n"how are you doing" or just "how"\n(all commands are case-sensitive)```');
