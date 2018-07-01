@@ -124,7 +124,7 @@ bot.on('message', (message) => {
 			break;
 			}
 		//end of special hello cases
-		message.channel.send('Hello~' + special + emote);
+		message.channel.send('Hello~ ' + special + ' ' + emote);
 	}
 	
 	//the say command to make her say whatever you want.
