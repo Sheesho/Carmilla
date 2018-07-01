@@ -1,6 +1,11 @@
+//⎛　　　　´●　　ω　●`　 ⎞
 var Discord = require('discord.js');
 var logger = require('winston');
 var auth = require('./auth.json');
+const fs = require('fs');
+var prefix = "!";
+var urlExists = require('url-exists');
+
 // Configure logger settings
 logger.remove(logger.transports.Console);
 logger.add(logger.transports.Console, {
@@ -13,8 +18,8 @@ bot.login(process.env.BOT_TOKEN);
    
 bot.on('ready', () => {
 	bot.user.setStatus('online', '!guide for help')
-    console.log('Connected');
-	console.log('Shisho is ready to go');
+	console.log('Connected');
+	console.log('Carmilla is ready to go');
 	bot.user.setActivity("!guide for help")
 });
 
@@ -24,8 +29,6 @@ bot.on('message', (message) => {
    {
 	emote = bot.emojis.find("name", "yug").toString();
    }
-    // Our bot needs to know if it will execute a command
-    // It will listen for messages that will start with `!`
 	var special = "";
     if ((message.content.substring(0,1) == auth.prefix) && (message.author.id != bot.id))
 	{
@@ -34,34 +37,7 @@ bot.on('message', (message) => {
 		console.log("cmd: " + cmd);
         var special = "";
         switch(cmd) {
-			case 'hello':
-				special = message.author;
-				switch(message.author.id) {
-					case auth.owner:
-						special = ' Mr Developer ';
-					break;
-					case auth.yoruno:
-						special = ' Yoruno *blushes* ';
-					break;
-					case auth.zaaap:
-						special = ' Mr F.O ';
-					break;
-					case auth.giggles:
-						special = " Onii-chan ";
-					break;
-					case auth.neppy:
-						special = " Uncle Nâz ";
-					break;
-					case auth.udon:
-						special = " Danchou ";
-					break;
-					case auth.yuki:
-						special = "... uh, I mean 'Guten Morgen, mein Führer ";
-					break;
-				}
-				//end of special hello cases
-				message.channel.send('Hello~' + special + emote);
-			break;
+				
 			//the howyoudoing command.
 			
 			case 'how are you doing':
@@ -112,82 +88,166 @@ bot.on('message', (message) => {
 				}
 				message.channel.send(special);
 			break;	
-			//case for adding a role.
-			switch(message.author.id){
-					case auth.owner:
-						special = " Mr Developer";
-					break;
-					case auth.zaaap:
-						special = " Mr Zaaap";
-					break;
-					case auth.giggles:
-						special = " Onii-chan";
-					break;
-					case auth.yoruno:
-						special = " Mr Yoruno";
-					break;
-					case auth.neppy:
-						special = " Uncle Nâz";
-					break;
-					case auth.udon:
-						special = " Danchou";
-					break;
-					case auth.yuki:
-						special = " mein Fuhrer";
-					break;
-				}
-			case 'up':
-				if(message.member.roles.find("name", "Up!"))
-				{
-					message.member.removeRole(message.guild.roles.find("name", "Up!")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"Up!" role~ ' + emote);
-				}
-				else
-				{
-					message.member.addRole(message.guild.roles.find("name", "Up!")).catch(console.error);
-					message.channel.send('"Up!" role given' + special + '~ ' + emote);
-				}	
-			break;
-			//adding "NSFW" role
-			case 'fbi':
-				if(message.member.roles.find("name", "on FBI list"))
-				{
-					message.member.removeRole(message.guild.roles.find("name", "on FBI list")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"on FBI list" role~ ' + emote);
-				}
-				else
-				{
-					message.member.addRole(message.guild.roles.find("name", "on FBI list")).catch(void(0));
-					message.channel.send('"on FBI list" role given' + special + '~ ' + emote);
-				}	
-			break;
-			case 'chicken':
-				if(message.member.roles.find("name", "Chicken"))
-				{
-					message.member.removeRole(message.guild.roles.find("name", "Chicken")).catch(console.error);
-					message.channel.send('Goodbye' + special + '"Chicken" role~ ' + emote);
-				}
-				else
-				{
-					message.member.addRole(message.guild.roles.find("name", "Chicken")).catch(console.error);
-					message.channel.send('"Chicken" role given' + special + '~ ' + emote);
-				}
-			break;
 			//the list of available commands.
 			case 'guide':
-				message.channel.send('```To play with Carmilla use "!" followed by one of those commands:\n\n"hello"\n"say"\n"up"\n"fbi"\n"chicken"\n"how are you doing" or just "how"\n(all commands are case-sensitive)\n\nI\'ve been created by Shisho#7817 to be a community member-bot, please don\'t bully Carmilla (^3^)```');
+				message.channel.send('```To play with Carmilla use "!" followed by one of those commands:\n\n"hello"\n"say"\n"role" (followed by the role you want to add or remove)\n"emote" (followed by the emote you want to use*)\n(all commands are case-sensitive)\n\nI\'ve been created by Shisho#7817 to be a community member-bot, please don\'t bully Carmilla (^3^)\n\n*Under the condition that Shisho added it to the emote folder```');
 			break;
             // Just add any case commands if you want to..
         }
-		//the say command to make her say whatever you want.
-		if(message.content.substring(0,4) == '!say' && (!message.author.bot) )
-		{
-			var txt = message.content.substring(5,message.length);
-			message.delete();
-			message.channel.send(txt + " " + emote);
-		} 
 	}
-	if((message.content.substring(0,16) == 'for you Carmilla') && (!message.author.bot))
+	
+	//getting the hello command to work with stuff at the end.
+	if(message.content.startsWith(auth.prefix + 'hello'))
+	{
+		special = message.author;
+		switch(message.author.id) {
+			case auth.owner:
+				special = ' Mr Developer ';
+			break;
+			case auth.yoruno:
+				special = ' Yoruno *blushes* ';
+			break;
+			case auth.zaaap:
+				special = ' Captain ';
+			break;
+			case auth.giggles:
+				special = " Onii-chan ";
+			break;
+			case auth.neppy:
+				special = " Uncle Nâz ";
+			break;
+			case auth.udon:
+				special = " Danchou ";
+			break;
+			case auth.yuki:
+				special = "... uh, I mean 'Guten Morgen, mein Führer ";
+			break;
+			}
+		//end of special hello cases
+		message.channel.send('Hello~' + special + emote);
+	}
+	
+	//the say command to make her say whatever you want.
+	if(message.content.startsWith(auth.prefix + 'say') && (!message.author.bot) )
+	{
+		var txt = message.content.substring(5,message.length);
+		message.delete();
+		message.channel.send(txt + " " + emote);
+	}
+	
+	//the role command to get any role if available.	
+	if((message.content.startsWith(auth.prefix + 'role')) && (!message.author.bot))
+	{
+		console.log(auth.prefix + 'role command issued');
+		var cont = message.content.substring(6,message.length);
+		console.log(cont + 'role asked');
+		switch(cont)
+		{
+			//longest case list ever.
+			case 'Captain':
+			case 'F.O':
+			case 'Shipwright':
+			case 'Rozapta':
+			case 'HL-player':
+			case 'Member':
+			case 'Friends':
+			case 'The Cutest ! Yay !':
+			case 'Umi Captain':
+			case 'Announcements':
+			case 'I Love Rosetta':
+			case 'Immeasurable level of Lucksack, Devourer of RNGesus':
+			case 'Level 200 Ultimate Lucksack':
+			case 'Rainbow':
+			case 'Disgusting Lucksack':
+			case 'HL-player':
+			case 'Tatsumaki':
+			case 'Bots':
+			case 'FO(E)':
+			case 'Attack Specialist':
+			case 'Defence Specialist':
+			case 'Lucksack Extraordinaire':
+			case 'Uzume':
+			case 'AMAZING!':
+			case 'Udon':
+			case 'Unluck Shitter':
+			case 'Stickers for Discord':
+			case 'DJ':
+			case 'Rythm':
+			case 'ALBAE LOVER':
+			case 'Crew Member':
+			case 'Vampy':
+			case 'Zooey':
+			case 'Chairlock FO':
+			case ':tm:':
+			case 'Savage AF Boi':
+			case 'Chairlock Member':
+				message.channel.send("Sorry, I don't have the permission to give you that role " + emote);
+			break;
+			default:
+				if(message.guild.roles.find("name", cont))
+				{
+					if(message.member.roles.find("name", cont))
+					{
+						message.member.removeRole(message.guild.roles.find("name", cont)).catch(console.error);
+						message.channel.send('Goodbye ' + '"' + cont + '"' + ' role~ ' + emote);
+						console.log(cont + ' role successfully removed');
+					}
+					else
+					{
+						message.member.addRole(message.guild.roles.find("name", cont)).catch(console.error);
+						message.channel.send('"'+ cont + '"' + ' role given~ ' + emote)
+						console.log(cont + ' role successfully given');
+					}
+				}
+			break;
+		}
+	}
+	
+	//Getting access to every emote
+	if((message.content.startsWith(auth.prefix + 'emote')) && (!message.author.bot))
+	{
+		var bool = false;
+		var cont = message.content.substring(7,message.length);
+		urlExists(auth.emotes+cont+".png", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(message.channel.send("", {file: auth.emotes + cont + ".png"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
+		urlExists(auth.emotes+cont+".gif", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(message.channel.send("", {file: auth.emotes + cont + ".gif"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
+	}
+	
+	//reacting to "for you Carmilla messages"
+	if((message.content.startsWith('For you Carmilla')) && (!message.author.bot))
 	{
 		switch(message.author.id) {
 			case auth.owner:
@@ -197,7 +257,7 @@ bot.on('message', (message) => {
 				special = " *deeply*";
 			break;
 			case auth.zaaap:
-				special = " Heehee, thanks Mr Zaaap~";
+				special = " Heehee, thanks Captain~";
 			break;
 			case auth.giggles: 
 				special = " Thanks, Onii-chan~";
