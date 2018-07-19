@@ -181,6 +181,11 @@ bot.on('message', (message) => {
 			case ':tm:':
 			case 'Savage AF Boi':
 			case 'Chairlock Member':
+			case 'KMR Employees':
+			case 'Rizk':
+			case 'Corvus':
+			case 'Chie':
+			case 'GG':
 				message.channel.send("Sorry, I don't have the permission to give you that role " + emote);
 			break;
 			default:
