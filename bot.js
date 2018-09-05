@@ -51,13 +51,14 @@ bot.on("guildMemberAdd", (member) => {
 			{
 				welcome = auth.vroomwelcome;
 				servername = "Vroom";
-				txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Umi*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#349282229312159755><:blobkiss:375218160225222656.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656.\n";
+				txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Vroom*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#349282229312159755><:blobkiss:375218160225222656.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656.\n";
 			}
 			else
 			{
 				welcome = "474647199926452224";
 				servername = "Shisho's Lab";
 				ping = "<@&367370573094846467>";
+				txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Shisho's Lab*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#418774517163360258><:blobkiss:375218160225222656.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656.\n";
 			}
 		}
 	}
