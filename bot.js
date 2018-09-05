@@ -42,7 +42,7 @@ bot.on("guildMemberAdd", (member) => {
 		{
 			welcome = auth.umiwelcome;
 			servername = "Umi";
-			ping = "@Crew Member"
+			ping = "<@&433903509017067522>"
 			txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Umi*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#408179228299886593>"+bot.emojis.find("name", "yug").toString()+".\n\nCarmilla hope you will have lot of fun here and wishes you a great day "+bot.emojis.find("name", "yug").toString()+".\n";
 		}
 		else
