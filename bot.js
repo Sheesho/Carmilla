@@ -23,6 +23,59 @@ bot.on('ready', () => {
 	bot.user.setActivity("!guide for help")
 });
 
+bot.on("guildMemberAdd", (member) => {
+	var welcome = 0;
+	var servername = "";
+	var ping;
+	var txt = "";
+	//defining the welcome channel
+	if(member.guild.id == auth.chairlock)
+	{
+		welcome = auth.chairlockwelcome;
+		servername = "Chairlock";
+		ping:"<@&292550499687858177>";
+		txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Chairlock*** I am <@427045218014068738> the unique bot of this server, so don't hesitate to check <#427127960315887627> or to drop a ***!guide*** in <#431470143902580736>.\nThere is a pinned post in <#293297897251012610> with the members timezones and the salt tables, feel free to add yourself on it if you want <:blobkiss:375218160225222656>.\nI almost forgot, check <#485126135873798155> because of special rules that apply to certain channels so that the members don't receive pings while it was 3AM and they were sleeping, thanks for your comprehension.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656>.\n";
+	}
+	else
+	{
+		if(member.guild.id == auth.umi) 
+		{
+			welcome = auth.umiwelcome;
+			servername = "Umi";
+			ping = "@Crew Member"
+			txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Umi*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#408179228299886593>"+bot.emojis.find("name", "yug").toString()+".\n\nCarmilla hope you will have lot of fun here and wishes you a great day "+bot.emojis.find("name", "yug").toString()+".\n";
+		}
+		else
+		{	
+			if(member.guild.id == auth.vroom)
+			{
+				welcome = auth.vroomwelcome;
+				servername = "Vroom";
+				txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Umi*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#349282229312159755><:blobkiss:375218160225222656.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656.\n";
+			}
+			else
+			{
+				welcome = "474647199926452224";
+				servername = "Shisho's Lab";
+				ping = "<@&367370573094846467>";
+			}
+		}
+	}
+	//gotta ping the members
+	if(ping != null)
+	{
+		bot.channels.get(welcome).send(ping);
+	}
+	//making the embed
+	const hiembed = new Discord.RichEmbed()
+			.setTitle("Carmilla's (cutest discord bot <:blobkiss:375218160225222656>) warm welcome ")
+			.setDescription(txt)
+			.setColor("#1ce6af")
+			.setFooter("Carmilla bot is property of Shisho#7817, no bully please ⎛　　　　´●　　ω　●`　 ⎞");
+	bot.channels.get(welcome).send({ embed: hiembed });
+	
+});
+
 bot.on('message', (message) => {
    var emote = '<:blobkiss:375218160225222656>';	
    if(message.guild.id == auth.umi)
@@ -88,14 +141,23 @@ bot.on('message', (message) => {
 				}
 				message.channel.send(special);
 			break;	
-			//the list of available commands.
-			case 'guide':
-				message.channel.send('```To play with Carmilla use "!" followed by one of those commands:\n\n"hello"\n"say"\n"role" (followed by the role you want to add or remove)\n"emote" (followed by the emote you want to use*)\n(all commands are case-sensitive)\n\nI\'ve been created by Shisho#7817 to be a community member-bot, please don\'t bully Carmilla (^3^)\n\n*Under the condition that Shisho added it to the emote folder```');
-			break;
             // Just add any case commands if you want to..
         }
 	}
-	
+	//the guide command
+	if(message.content.startsWith(auth.prefix + 'guide'))
+	{	
+		const helpembed = new Discord.RichEmbed()
+			.setTitle("Carmilla (cutest discord bot <:blobkiss:375218160225222656>) guide")
+			.setDescription("Well, looks like someone needs some pointers on how to interact with the cute little m... I-I mean on how to interact with the wonderful lady that Carmilla is~ <:blobpeek:375218261660401664>\nHere is a short description of all the sentences a proper person should use to address a lady:")
+			.setColor("#1ce6af")
+			.setFooter("Carmilla bot is property of Shisho#7817, no bully please ⎛　　　　´●　　ω　●`　 ⎞")
+			.addField("!hello", "If you're ever feeling lonely because nobody is saying hi to you you can count on me ! <:blobkiss:375218160225222656>")
+			.addField("!say", "If you want to make me say silly things, you can use this~ <:blobkiss:375218160225222656>")
+			.addField("!role", "If you want to add a cool role to the list of those you already have or remove one because it's not good enough for you just use this followed by that specific role. Beware, it is case sen-si-ti-ve~ <:blobkiss:375218160225222656>")
+			.addField("!emote", "If you want to use nice emotes because being restricted to just 50 is no fun <:blobtear:375218561628766210>. Just pick an emote from the extensive [emote list](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), similarily to the previous command this one is case sen-si-ti-ve~ <:blobkiss:375218160225222656>\n\n\n\nI hope this has been helpful to you and that you're gonna have a lot of fun playing with me from now on<:blobpeek:375218261660401664>\n\nOh, I almost forgot that I shouldn't speak about the secret commands & interactions, what a klutz I am teehee~");
+		message.channel.send({ embed: helpembed });
+	}
 	//getting the hello command to work with stuff at the end.
 	if(message.content.startsWith(auth.prefix + 'hello'))
 	{
@@ -124,7 +186,7 @@ bot.on('message', (message) => {
 			break;
 			}
 		//end of special hello cases
-		message.channel.send('Hello~ ' + special + ' ' + emote);
+		message.channel.send('Hello~' + special + emote);
 	}
 	
 	//the say command to make her say whatever you want.
@@ -181,11 +243,6 @@ bot.on('message', (message) => {
 			case ':tm:':
 			case 'Savage AF Boi':
 			case 'Chairlock Member':
-			case 'KMR Employees':
-			case 'Rizk':
-			case 'Corvus':
-			case 'Chie':
-			case 'GG':
 				message.channel.send("Sorry, I don't have the permission to give you that role " + emote);
 			break;
 			default:
@@ -249,24 +306,6 @@ bot.on('message', (message) => {
 				//End of promise
 			}
 		});
-		urlExists(auth.emotes+cont+".jpg", function(err, exists)
-		{
-			if(exists)
-			{
-				bool = true;
-				//Promise
-				var promise = new Promise(function(resolve, reject) 
-				{
-					// do a thing, possibly async, then…
-					resolve(message.channel.send("", {file: auth.emotes + cont + ".jpg"}).catch(
-					function() 
-					{ 
-						console.log("promesse rompue");
-					}));
-				});
-				//End of promise
-			}
-		});
 	}
 	
 	//reacting to "for you Carmilla messages"
@@ -280,7 +319,7 @@ bot.on('message', (message) => {
 				special = " *deeply*";
 			break;
 			case auth.zaaap:
-				special = " Heehee, thanks Captain~";
+				special = " Heehee, thanks Mr Zaaap~";
 			break;
 			case auth.giggles: 
 				special = " Thanks, Onii-chan~";
