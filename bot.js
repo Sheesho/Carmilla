@@ -57,7 +57,7 @@ bot.on("guildMemberAdd", (member) => {
 			{
 				welcome = "492355440399745028";
 				servername = "Anim !";
-				txt = "Coucou " + member + "! ~~Quel joli cou vous avez là~~\n***Bienvenue sur le serveur des Bachelor Anim 1*** Je suis la fabuleusement incroyable <@427045218014068738>, donc n'hésitez pas a utiliser ***!guide*** dans le salon <#492365526799220757> pour connâitre la liste des commandes ! <:blobkiss:375218160225222656>.\n\nCarmilla espère que vous allez bien vous amuser et vous souhaote une bonne journée ! <:blobkiss:375218160225222656>.\n";
+				txt = "Coucou " + member + "! ~~Quel joli cou vous avez là~~\n***Bienvenue sur le serveur des Bachelor Anim 1*** Je suis la fabuleusement incroyable <@427045218014068738>, donc n'hésitez pas a utiliser ***!guide*** dans le salon <#492365526799220757> pour connaître la liste des commandes ! <:blobkiss:375218160225222656>.\n\nCarmilla espère que vous allez bien vous amuser et vous souhaote une bonne journée ! <:blobkiss:375218160225222656>.\n";
 			}
 		}
 	}
@@ -158,7 +158,7 @@ bot.on('message', (message) => {
 	//the guide command
 	if(message.content.startsWith(auth.prefix + 'guide'))
 	{
-		if(message.author.guild.id == "492355440399745026")
+		if(message.guild.id == "492355440399745026")
 		{	
 			const helpembed = new Discord.RichEmbed()
 				.setTitle("Carmilla (la meilleure des bots discord <:blobkiss:375218160225222656>) super guide")
