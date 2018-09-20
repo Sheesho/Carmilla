@@ -158,27 +158,27 @@ bot.on('message', (message) => {
 	//the guide command
 	if(message.content.startsWith(auth.prefix + 'guide'))
 	{
-		if(message.author.guild.id != "492355440399745026")
+		if(message.author.guild.id == "492355440399745026")
 		{	
-		const helpembed = new Discord.RichEmbed()
-			.setTitle("Carmilla (la meilleure des bots discord <:blobkiss:375218160225222656>) super guide")
-			.setDescription("Tiens tiens tiens, on dirait que quelqu'un a besoin d'informations sur ce que peut faire l'incroyable & adorable Carmilla~ <:blobpeek:375218261660401664>\nVoici la liste de ce que je peux faire(Et dites à Shisho de se dépêcher d'en ajouter d'autres):")
-			.setColor("#1ce6af")
-			.setFooter("Carmilla bot est propriété de Shisho#7817, Soyez gentils s'il vous plait ⎛　　　　´●　　ω　●`　 ⎞")
-			.addField("!say", "Si vous aimez faire dire des choses stupides aux gens cette commande est faîte pour vous~ <:blobkiss:375218160225222656>")
-			.addField("!emote", "Si vous voulez utiliser tout plein d'emojis super sympas, parce qu'être limité à 50 c'est pas fun <:blobtear:375218561628766210>. Vous n'avez qu'à en choisir une dans l'incroyable [liste des emojis](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), tout comme la commande précédente, elle est sensible à la casse~ <:blobkiss:375218160225222656>\n\n\n\nJ'espère que ça vous a été utile et que l'on va beacoup s'amuser ensemble.<:blobpeek:375218261660401664>\n\nOh, J'ai faillis oublier de vous souhaiter une bonne journée, quelle étourdie je fais~");
+			const helpembed = new Discord.RichEmbed()
+				.setTitle("Carmilla (la meilleure des bots discord <:blobkiss:375218160225222656>) super guide")
+				.setDescription("Tiens tiens tiens, on dirait que quelqu'un a besoin d'informations sur ce que peut faire l'incroyable & adorable Carmilla~ <:blobpeek:375218261660401664>\nVoici la liste de ce que je peux faire(Et dites à Shisho de se dépêcher d'en ajouter d'autres):")
+				.setColor("#1ce6af")
+				.setFooter("Carmilla bot est propriété de Shisho#7817, Soyez gentils s'il vous plait ⎛　　　　´●　　ω　●`　 ⎞")
+				.addField("!say", "Si vous aimez faire dire des choses stupides aux gens cette commande est faîte pour vous~ <:blobkiss:375218160225222656>")
+				.addField("!emote", "Si vous voulez utiliser tout plein d'emojis super sympas, parce qu'être limité à 50 c'est pas fun <:blobtear:375218561628766210>. Vous n'avez qu'à en choisir une dans l'incroyable [liste des emojis](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), tout comme la commande précédente, elle est sensible à la casse~ <:blobkiss:375218160225222656>\n\n\n\nJ'espère que ça vous a été utile et que l'on va beacoup s'amuser ensemble.<:blobpeek:375218261660401664>\n\nOh, J'ai faillis oublier de vous souhaiter une bonne journée, quelle étourdie je fais~");
 		}
 		else
 		{
 			const helpembed = new Discord.RichEmbed()
-			.setTitle("Carmilla (cutest discord bot <:blobkiss:375218160225222656>) guide")
-			.setDescription("Well, looks like someone needs some pointers on how to interact with the cute little m... I-I mean on how to interact with the wonderful lady that Carmilla is~ <:blobpeek:375218261660401664>\nHere is a short description of all the sentences a proper person should use to address a lady:")
-			.setColor("#1ce6af")
-			.setFooter("Carmilla bot is property of Shisho#7817, no bully please ⎛　　　　´●　　ω　●`　 ⎞")
-			.addField("!hello", "If you're ever feeling lonely because nobody is saying hi to you you can count on me ! <:blobkiss:375218160225222656>")
-			.addField("!say", "If you want to make me say silly things, you can use this~ <:blobkiss:375218160225222656>")
-			.addField("!role", "If you want to add a cool role to the list of those you already have or remove one because it's not good enough for you just use this followed by that specific role. Beware, it is case sen-si-ti-ve~ <:blobkiss:375218160225222656>")
-			.addField("!emote", "If you want to use nice emotes because being restricted to just 50 is no fun <:blobtear:375218561628766210>. Just pick an emote from the extensive [emote list](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), similarily to the previous command this one is case sen-si-ti-ve~ <:blobkiss:375218160225222656>\n\n\n\nI hope this has been helpful to you and that you're gonna have a lot of fun playing with me from now on<:blobpeek:375218261660401664>\n\nOh, I almost forgot that I shouldn't speak about the secret commands & interactions, what a klutz I am teehee~");
+				.setTitle("Carmilla (cutest discord bot <:blobkiss:375218160225222656>) guide")
+				.setDescription("Well, looks like someone needs some pointers on how to interact with the cute little m... I-I mean on how to interact with the wonderful lady that Carmilla is~ <:blobpeek:375218261660401664>\nHere is a short description of all the sentences a proper person should use to address a lady:")
+				.setColor("#1ce6af")
+				.setFooter("Carmilla bot is property of Shisho#7817, no bully please ⎛　　　　´●　　ω　●`　 ⎞")
+				.addField("!hello", "If you're ever feeling lonely because nobody is saying hi to you you can count on me ! <:blobkiss:375218160225222656>")
+				.addField("!say", "If you want to make me say silly things, you can use this~ <:blobkiss:375218160225222656>")
+				.addField("!role", "If you want to add a cool role to the list of those you already have or remove one because it's not good enough for you just use this followed by that specific role. Beware, it is case sen-si-ti-ve~ <:blobkiss:375218160225222656>")
+				.addField("!emote", "If you want to use nice emotes because being restricted to just 50 is no fun <:blobtear:375218561628766210>. Just pick an emote from the extensive [emote list](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), similarily to the previous command this one is case sen-si-ti-ve~ <:blobkiss:375218160225222656>\n\n\n\nI hope this has been helpful to you and that you're gonna have a lot of fun playing with me from now on<:blobpeek:375218261660401664>\n\nOh, I almost forgot that I shouldn't speak about the secret commands & interactions, what a klutz I am teehee~");
 		}	
 	message.channel.send({ embed: helpembed });
 	}
