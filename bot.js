@@ -23,7 +23,7 @@ bot.on('ready', () => {
 	bot.user.setActivity("!guide for help")
 });
 
-bot.on("guildMemberAdd", (member) => {
+/*bot.on("guildMemberAdd", (member) => {
 	var welcome = 0;
 	var servername = "";
 	var ping;
@@ -85,7 +85,7 @@ bot.on("guildMemberAdd", (member) => {
 			.setFooter("Carmilla bot est proriété de Shisho#7817, Soyez gentils s'il vous plait ⎛　　　　´●　　ω　●`　 ⎞");
 	bot.channels.get(welcome).send({ embed: hiembed });
 	}
-});
+});*/
 
 bot.on('message', (message) => {
    var emote = '<:blobkiss:375218160225222656>';	
