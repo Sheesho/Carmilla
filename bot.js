@@ -253,6 +253,66 @@ bot.on('message', (message) =>
 			break;
 		}
 	}
+	//Getting access to every emote
+	if((message.content.startsWith(auth.prefix + 'emote')) && (!message.author.bot))
+	{
+		var bool = false;
+		var cont = message.content.substring(7,message.length);
+		urlExists(auth.emotes+cont+".png", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(message.channel.send("", {file: auth.emotes + cont + ".png"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
+		urlExists(auth.emotes+cont+".gif", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(message.channel.send("", {file: auth.emotes + cont + ".gif"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
+		urlExists(auth.emotes+cont+".jpg", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(message.channel.send("", {file: auth.emotes + cont + ".jpg"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
+	}
 
 	//end of the if
 	}
