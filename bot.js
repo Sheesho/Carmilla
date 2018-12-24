@@ -148,5 +148,46 @@ bot.on('message', (message) =>
 				message.channel.send({ embed: helpembed });
 			}	
 		}
+		//getting the hello command to work with stuff at the end.
+	if(message.content.startsWith(auth.prefix + 'hello'))
+	{
+		special = message.author;
+		switch(message.author.id) {
+			case auth.owner:
+				special = ' Mr Developer ';
+			break;
+			case auth.yoruno:
+				special = ' Yoruno *blushes* ';
+			break;
+			case auth.zaaap:
+				special = ' Captain ';
+			break;
+			case auth.giggles:
+				special = " Onii-chan ";
+			break;
+			case auth.neppy:
+				special = " Uncle Nâz ";
+			break;
+			case auth.udon:
+				special = " Danchou ";
+			break;
+			case auth.yuki:
+				special = "... uh, I mean 'Guten Morgen, mein Führer ";
+			break;
+			}
+		//end of special hello cases
+		message.channel.send('Hello~' + special + emote);
 	}
+	
+	//the say command to make her say whatever you want.
+	if(message.content.startsWith(auth.prefix + 'say') && (!message.author.bot) )
+	{
+		var txt = message.content.substring(5,message.length);
+		message.delete();
+		message.channel.send(txt + " " + emote);
+	}
+
+	//end of the if
+	}
+//end of the function
 });
