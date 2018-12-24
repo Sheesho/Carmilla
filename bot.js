@@ -313,7 +313,70 @@ bot.on('message', (message) =>
 			}
 		});
 	}
-
+		
+	//reacting to "for you Carmilla messages"
+	if((message.content.startsWith('For you Carmilla')) && (!message.author.bot))
+	{
+		switch(message.author.id) {
+			case auth.owner:
+				special = ' Please stop Mr.Developer~';
+			break;
+			case auth.yoruno:
+				special = " *deeply*";
+			break;
+			case auth.zaaap:
+				special = " Heehee, thanks Mr Zaaap~";
+			break;
+			case auth.giggles: 
+				special = " Thanks, Onii-chan~";
+			break;
+			case auth.giggles: 
+				special = " Thanks, Uncle Nâz~";
+			break;
+			case auth.el: 
+				special = " Heehee, I just happen to have one for you too El" + emote;
+			break;
+			case auth.udon:
+				special = "Thanks, Danchou~";
+			break;
+			case auth.yuki:
+				special = "Danke, mein Führer~";
+			break;
+		}
+		message.channel.send('*blushes*' + special);
+	}
+		
+	//reacting to posts in art-channel
+	if(((message.channel.id == auth.artchannel) && (message.attachments.size == 1)) && (!message.author.bot))
+	{
+		var rand = Math.floor(Math.random() * 100) + 1; // returns a number between 1 and 100
+		if( rand > 0 && rand <= 10)
+		{
+			message.react("375604899863330817").catch(void(0));
+        }
+		else if(rand > 10 && rand <= 20)
+		{
+			message.react("375604905047621633").catch(void(0));
+		}
+		else if(rand > 20 && rand <= 30)
+		{
+			message.react("375604888706482176").catch(void(0));
+		}
+		else if(rand > 30 && rand <= 60)
+		{
+			message.react("375604900119314432").catch(void(0));
+		}
+	}
+		
+	//reacting to posts in salt-channel
+	if(((message.channel.id == auth.saltchannel) && (message.attachments.size == 1)) && (!message.author.bot))
+	{
+		var rand = Math.floor(Math.random() * 100) + 1; // returns a number between 1 and 100
+		if( rand > 0 && rand <= 30)
+		{
+			message.react("427404778436427786").catch(void(0));
+        	}
+	}
 	//end of the if
 	}
 //end of the function
