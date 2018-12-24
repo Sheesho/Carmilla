@@ -186,6 +186,73 @@ bot.on('message', (message) =>
 		message.delete();
 		message.channel.send(txt + " " + emote);
 	}
+		//the role command to get any role if available.	
+	if((message.content.startsWith(auth.prefix + 'role')) && (!message.author.bot))
+	{
+		console.log(auth.prefix + 'role command issued');
+		var cont = message.content.substring(6,message.length);
+		console.log(cont + 'role asked');
+		switch(cont)
+		{
+			//longest case list ever.
+			case 'Captain':
+			case 'F.O':
+			case 'Shipwright':
+			case 'Rozapta':
+			case 'HL-player':
+			case 'Member':
+			case 'Friends':
+			case 'The Cutest ! Yay !':
+			case 'Umi Captain':
+			case 'Announcements':
+			case 'I Love Rosetta':
+			case 'Immeasurable level of Lucksack, Devourer of RNGesus':
+			case 'Level 200 Ultimate Lucksack':
+			case 'Rainbow':
+			case 'Disgusting Lucksack':
+			case 'HL-player':
+			case 'Tatsumaki':
+			case 'Bots':
+			case 'FO(E)':
+			case 'Attack Specialist':
+			case 'Defence Specialist':
+			case 'Lucksack Extraordinaire':
+			case 'Uzume':
+			case 'AMAZING!':
+			case 'Udon':
+			case 'Unluck Shitter':
+			case 'Stickers for Discord':
+			case 'DJ':
+			case 'Rythm':
+			case 'ALBAE LOVER':
+			case 'Crew Member':
+			case 'Vampy':
+			case 'Zooey':
+			case 'Chairlock FO':
+			case ':tm:':
+			case 'Savage AF Boi':
+			case 'Chairlock Member':
+				message.channel.send("Sorry, I don't have the permission to give you that role " + emote);
+			break;
+			default:
+				if(message.guild.roles.find("name", cont))
+				{
+					if(message.member.roles.find("name", cont))
+					{
+						message.member.removeRole(message.guild.roles.find("name", cont)).catch(console.error);
+						message.channel.send('Goodbye ' + '"' + cont + '"' + ' role~ ' + emote);
+						console.log(cont + ' role successfully removed');
+					}
+					else
+					{
+						message.member.addRole(message.guild.roles.find("name", cont)).catch(console.error);
+						message.channel.send('"'+ cont + '"' + ' role given~ ' + emote)
+						console.log(cont + ' role successfully given');
+					}
+				}
+			break;
+		}
+	}
 
 	//end of the if
 	}
