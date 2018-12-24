@@ -153,6 +153,27 @@ bot.on('message', (message) => {
 				message.channel.send(special);
 			break;	
             // Just add any case commands if you want to.
+	if(message.content.startsWith(auth.prefix + 'xmas') && (!message.author.bot))
+	{
+		message.delete();
+		urlExists("https://raw.githubusercontent.com/Sheesho/Carmilla/master/Xmas-Carmilla.png", function(err)
+		{
+			//Promise
+			var promise = new Promise(function(resolve, reject) 
+			{
+				// do a thing, possibly async, then…
+				console.log("sending the message");
+				resolve(bot.channels.get("526699343953264670").send("Merry Christmas Everyone !\nCarmilla is super-duper happy about the time she spent here <:vampou:375604910655275026>.\nI wish you all to have an amazing time eating chocolate and opening presents <:blobnom:375604908940066818> !\nCan't wait to have more fun for New year and all the years that will follow, yay ! I cannot give you a present so I hope a kiss from this cutie will be enought <:blobkiss:375604900119314432>\n<:vampou:375604910655275026> Carmilla's out ! <:vampou:375604910655275026>\n\nP.S:Shisho said that if you guys react with :gift: I will get lots and lots of nice things so pwease give a lot to the little Carmi-nya ! :sparkles:", {file: "https://raw.githubusercontent.com/Sheesho/Carmilla/master/Xmas-Carmilla.png"}).catch(
+				function() 
+				{ 
+					console.log("promesse rompue");
+				}));
+				console.log("message sent");
+				//End of promise
+			});
+		});
+	}
+
 	//the guide command
 	if(message.content.startsWith(auth.prefix + 'guide'))
 	{
