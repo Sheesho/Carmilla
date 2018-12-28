@@ -21,7 +21,7 @@ bot.on('ready', () => {
 	console.log('Connected');
 	console.log('Carmilla is ready to go');
 	bot.user.setActivity("!guide for help");
-	bot.channels.get("431470143902580736").send("<@250342596784816129>, I am online again ! <:blobkiss:375218160225222656>");
+	//bot.channels.get("431470143902580736").send("<@250342596784816129>, I am online again ! <:blobkiss:375218160225222656>");
 });
 
 /*bot.on("guildMemberAdd", (member) => {
