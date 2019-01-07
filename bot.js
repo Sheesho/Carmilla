@@ -190,7 +190,6 @@ bot.on('message', (message) =>
 	if(message.content.startsWith(auth.prefix + 'lit') && (!message.author.bot) )
 	{
 		var txt = message.content.substring(5,message.length);
-		message.delete();
 		message.channel.send(":ok_hand::fire::joy_cat::100:");
 	}
 
