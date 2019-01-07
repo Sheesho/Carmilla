@@ -186,6 +186,14 @@ bot.on('message', (message) =>
 		message.delete();
 		message.channel.send(txt + " " + emote);
 	}
+
+	if(message.content.startsWith(auth.prefix + 'lit') && (!message.author.bot) )
+	{
+		var txt = message.content.substring(5,message.length);
+		message.delete();
+		message.channel.send(":ok_hand::fire::joy_cat::100:");
+	}
+
 		//the role command to get any role if available.	
 	if((message.content.startsWith(auth.prefix + 'role')) && (!message.author.bot))
 	{
