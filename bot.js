@@ -5,6 +5,7 @@ var auth = require('./auth.json');
 const fs = require('fs');
 var prefix = "!";
 var urlExists = require('url-exists');
+var hate;
 
 // Configure logger settings
 logger.remove(logger.transports.Console);
@@ -21,6 +22,7 @@ bot.on('ready', () => {
 	console.log('Connected');
 	console.log('Carmilla is ready to go');
 	bot.user.setActivity("!guide for help");
+	hate = 100;
 	//bot.channels.get("431470143902580736").send("<@250342596784816129>, I am online again ! <:blobkiss:375218160225222656>");
 });
 
@@ -357,7 +359,11 @@ bot.on('message', (message) =>
 	}
 	else
 	{
-		message.delete();
+		if(hate > 0)
+		{
+			message.delete();
+			hate = hate - Math.floor(Math.random() * 2) ;
+		}
 	}
 		
 	//reacting to posts in art-channel
