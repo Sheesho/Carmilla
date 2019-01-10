@@ -98,8 +98,9 @@ bot.on('message', (message) =>
 		emote = bot.emojis.find("name", "yug").toString();
 	}
 	var special = "";
-	if(message.author.id != "237111771368914945")
-	{
+	
+	
+
 	if ((message.content.substring(0,1) == auth.prefix) && (message.author.id != bot.id))
 	{
 		var cmd = "";
@@ -358,13 +359,13 @@ bot.on('message', (message) =>
 	}
 	}
 	else
-	{
-		if(hate > 0)
-		{
-			message.delete();
-			hate = hate - Math.floor(Math.random() * 2) ;
-		}
-	}
+	
+		
+		
+			
+		
+		
+	
 		
 	//reacting to posts in art-channel
 	if(((message.channel.id == auth.artchannel) && (message.attachments.size == 1)) && (!message.author.bot))
