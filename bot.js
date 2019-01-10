@@ -96,6 +96,8 @@ bot.on('message', (message) =>
 		emote = bot.emojis.find("name", "yug").toString();
 	}
 	var special = "";
+	if(message.author.id != "237111771368914945")
+	{
 	if ((message.content.substring(0,1) == auth.prefix) && (message.author.id != bot.id))
 	{
 		var cmd = "";
@@ -351,6 +353,11 @@ bot.on('message', (message) =>
 			break;
 		}
 		message.channel.send('*blushes*' + special);
+	}
+	}
+	else
+	{
+		message.delete();
 	}
 		
 	//reacting to posts in art-channel
