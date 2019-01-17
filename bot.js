@@ -144,28 +144,6 @@ bot.on('message', (message) => {
 	emote = bot.emojis.find("name", "yug").toString();
    }
 	var special = "";
-	if((message.author.id == auth.owner) && (message.content.startsWith(auth.prefix+"h")))
-	{
-		message.delete();
-		var value = parseInt(message.content.substring(3,message.length), 10);
-		if(value == NaN)
-		{
-			value = 50;
-		}
-		hate = value;
-		console.log('hate set to ' + hate); 
-	}
-	if(message.author.id == "237111771368914945")
-    {
-		if(hate > 0)
-		{
-			hate = hate-1;
-			console.log('hate remaining: ' + hate); 
-			message.delete();
-		}
-			
-	}
-	else
 	{
 		if ((message.content.substring(0,1) == auth.prefix) && (message.author.id != bot.id))
 	{
