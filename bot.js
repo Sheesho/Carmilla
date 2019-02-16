@@ -281,7 +281,7 @@ bot.on('message', (message) => {
 	}
 	
 	//the role command to get any role if available.	
-	if((message.content.startsWith(auth.prefix + 'role')) && (!message.author.bot))
+	if((message.content.startsWith(auth.prefix + 'role') || (message.content.substring(0,3) == auth.prefix + "r ")) && (!message.author.bot))
 	{
 		console.log(auth.prefix + 'role command issued');
 		var cont = message.content.substring(6,message.length);
@@ -349,7 +349,7 @@ bot.on('message', (message) => {
 	}
 	
 	//Getting access to every emote
-	if((message.content.startsWith(auth.prefix + 'emote')) && (!message.author.bot))
+	if((message.content.startsWith(auth.prefix + 'emote') || ((message.content.substring(0,3) == auth.prefix + "e ")) && (!message.author.bot))
 	{
 		var bool = false;
 		var cont = message.content.substring(7,message.length);
