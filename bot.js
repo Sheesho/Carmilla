@@ -133,6 +133,24 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 				//End of promise
 			}
 		});
+		urlExists(auth.emotes+cont+".jpg", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(newMessage.channel.send("", {file: auth.emotes + cont + ".jpg"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
 	}
    }
 });
@@ -381,6 +399,24 @@ bot.on('message', (message) => {
 				{
 					// do a thing, possibly async, then…
 					resolve(message.channel.send("", {file: auth.emotes + cont + ".gif"}).catch(
+					function() 
+					{ 
+						console.log("promesse rompue");
+					}));
+				});
+				//End of promise
+			}
+		});
+		urlExists(auth.emotes+cont+".jpg", function(err, exists)
+		{
+			if(exists)
+			{
+				bool = true;
+				//Promise
+				var promise = new Promise(function(resolve, reject) 
+				{
+					// do a thing, possibly async, then…
+					resolve(newMessage.channel.send("", {file: auth.emotes + cont + ".jpg"}).catch(
 					function() 
 					{ 
 						console.log("promesse rompue");
