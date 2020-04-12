@@ -21,6 +21,8 @@ bot.on('ready', () => {
 	console.log('Connected');
 	console.log('Carmilla is ready to go');
 	bot.user.setActivity("!guide for help");
+	let user = bot.users.find(user => user.tag === "Shisho#7817");
+	user.send("I am online & ready to go !");
 });
 
 ot.on('message', message => {
