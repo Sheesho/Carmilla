@@ -22,8 +22,6 @@ bot.on('ready', () => {
 	console.log('Connected');
 	console.log('Carmilla is ready to go');
 	bot.user.setActivity("!guide for help");
-	hate = 100;
-	//bot.channels.get("431470143902580736").send("<@250342596784816129>, I am online again ! <:blobkiss:375218160225222656>");
 });
 
 /*bot.on("guildMemberAdd", (member) => {
@@ -37,7 +35,7 @@ bot.on('ready', () => {
 		welcome = auth.chairlockwelcome;
 		servername = "Chairlock";
 		ping:"<@&292550499687858177>";
-		txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Chairlock*** I am <@427045218014068738> the unique bot of this server, so don't hesitate to check <#427127960315887627> or to drop a ***!guide*** in <#431470143902580736>.\nThere is a pinned post in <#293297897251012610> with the members timezones and the salt tables, feel free to add yourself on it if you want <:blobkiss:375218160225222656>.\nI almost forgot, check <#485126135873798155> because of special rules that apply to certain channels so that the members don't receive pings while it was 3AM and they were sleeping, thanks for your comprehension.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656>.\n";
+		txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Chairlock*** I am <@427045218014068738> the unique bot of this server, so don't hesitate to check <#427127960315887627> or to drop a ***!guide*** in <#431470143902580736>.\nThere is a pinned post in <#293297897251012610> with the members timezones and the salt tables, feel free to add yourself on it if you want <:blobkiss:375604900119314432>.\nI almost forgot, check <#485126135873798155> because of special rules that apply to certain channels so that the members don't receive pings while it was 3AM and they were sleeping, thanks for your comprehension.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375604900119314432>.\n";
 	}
 	else
 	{
@@ -54,13 +52,13 @@ bot.on('ready', () => {
 			{
 				welcome = auth.vroomwelcome;
 				servername = "Vroom";
-				txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Vroom*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#349282229312159755><:blobkiss:375218160225222656>.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375218160225222656>.\n";
+				txt = "Why hello there " + member + "! ~~I'll supply you with all you need~~\nWelcome to ***Vroom*** I am <@427045218014068738>, so don't hesitate to drop a ***!guide*** in <#349282229312159755><:blobkiss:375604900119314432>.\n\nCarmilla hope you will have lot of fun here and wishes you a great day <:blobkiss:375604900119314432>.\n";
 			}
 			else
 			{
 				welcome = "492355440399745028";
 				servername = "Anim !";
-				txt = "Coucou " + member + "! ~~Quel joli cou vous avez là~~\n***Bienvenue sur le serveur des Bachelor Anim 1*** Je suis la fabuleusement incroyable <@427045218014068738>, donc n'hésitez pas a utiliser ***!guide*** dans le salon <#492365526799220757> pour connaître la liste des commandes ! <:blobkiss:375218160225222656>.\n\nCarmilla espère que vous allez bien vous amuser et vous souhaote une bonne journée ! <:blobkiss:375218160225222656>.\n";
+				txt = "Coucou " + member + "! ~~Quel joli cou vous avez là~~\n***Bienvenue sur le serveur des Bachelor Anim 1*** Je suis la fabuleusement incroyable <@427045218014068738>, donc n'hésitez pas a utiliser ***!guide*** dans le salon <#492365526799220757> pour connaître la liste des commandes ! <:blobkiss:375604900119314432>.\n\nCarmilla espère que vous allez bien vous amuser et vous souhaote une bonne journée ! <:blobkiss:375604900119314432>.\n";
 			}
 		}
 	}
@@ -73,7 +71,7 @@ bot.on('ready', () => {
 	if(member.guild.id != "492355440399745026")
 	{
 	const hiembed = new Discord.RichEmbed()
-			.setTitle("Carmilla's (cutest discord bot <:blobkiss:375218160225222656>) warm welcome ")
+			.setTitle("Carmilla's (cutest discord bot <:blobkiss:375604900119314432>) warm welcome ")
 			.setDescription(txt)
 			.setColor("#1ce6af")
 			.setFooter("Carmilla bot is property of Shisho#7817, no bully please ⎛　　　　´●　　ω　●`　 ⎞");
@@ -82,7 +80,7 @@ bot.on('ready', () => {
 	else
 	{
 	const hiembed = new Discord.RichEmbed()
-			.setTitle("Carmilla's (la meilleure des bots discord <:blobkiss:375218160225222656>) adorable bievenue ")
+			.setTitle("Carmilla's (la meilleure des bots discord <:blobkiss:375604900119314432>) adorable bievenue ")
 			.setDescription(txt)
 			.setColor("#1ce6af")
 			.setFooter("Carmilla bot est proriété de Shisho#7817, Soyez gentils s'il vous plait ⎛　　　　´●　　ω　●`　 ⎞");
@@ -156,7 +154,7 @@ bot.on('messageUpdate', (oldMessage, newMessage) => {
 });
 
 bot.on('message', (message) => {
-   var emote = '<:blobkiss:375218160225222656>';	
+   var emote = '<:blobkiss:375604900119314432>';	
    if(message.guild.id == auth.umi)
    {
 	emote = bot.emojis.find("name", "yug").toString();
@@ -230,25 +228,25 @@ bot.on('message', (message) => {
 		if(message.guild.id == "492355440399745026")
 		{	
 			const helpembed = new Discord.RichEmbed()
-				.setTitle("Carmilla (la meilleure des bots discord <:blobkiss:375218160225222656>) super guide")
+				.setTitle("Carmilla (la meilleure des bots discord <:blobkiss:375604900119314432>) super guide")
 				.setDescription("Tiens tiens tiens, on dirait que quelqu'un a besoin d'informations sur ce que peut faire l'incroyable & adorable Carmilla~ <:blobpeek:375218261660401664>\nVoici la liste de ce que je peux faire(Et dites à Shisho de se dépêcher d'en ajouter d'autres):")
 				.setColor("#1ce6af")
 				.setFooter("Carmilla bot est propriété de Shisho#7817, Soyez gentils s'il vous plait ⎛　　　　´●　　ω　●`　 ⎞")
-				.addField("!say", "Si vous aimez faire dire des choses stupides aux gens cette commande est faîte pour vous~ <:blobkiss:375218160225222656>")
-				.addField("!emote", "Si vous voulez utiliser tout plein d'emojis super sympas, parce qu'être limité à 50 c'est pas fun <:blobtear:375218561628766210>. Vous n'avez qu'à en choisir une dans l'incroyable [liste des emojis](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), tout comme la commande précédente, elle est sensible à la casse~ <:blobkiss:375218160225222656>\n\n\n\nJ'espère que ça vous a été utile et que l'on va beacoup s'amuser ensemble.<:blobpeek:375218261660401664>\n\nOh, J'ai faillis oublier de vous souhaiter une bonne journée, quelle étourdie je fais~");
+				.addField("!say", "Si vous aimez faire dire des choses stupides aux gens cette commande est faîte pour vous~ <:blobkiss:375604900119314432>")
+				.addField("!emote", "Si vous voulez utiliser tout plein d'emojis super sympas, parce qu'être limité à 50 c'est pas fun <:blobtear:375218561628766210>. Vous n'avez qu'à en choisir une dans l'incroyable [liste des emojis](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), tout comme la commande précédente, elle est sensible à la casse~ <:blobkiss:375604900119314432>\n\n\n\nJ'espère que ça vous a été utile et que l'on va beacoup s'amuser ensemble.<:blobpeek:375218261660401664>\n\nOh, J'ai faillis oublier de vous souhaiter une bonne journée, quelle étourdie je fais~");
 			message.channel.send({ embed: helpembed });
 		}
 		else
 		{
 				const helpembed = new Discord.RichEmbed()
-				.setTitle("Carmilla (cutest discord bot <:blobkiss:375218160225222656>) guide")
+				.setTitle("Carmilla (cutest discord bot <:blobkiss:375604900119314432>) guide")
 				.setDescription("Well, looks like someone needs some pointers on how to interact with the cute little m... I-I mean on how to interact with the wonderful lady that Carmilla is~ <:blobpeek:375218261660401664>\nHere is a short description of all the sentences a proper person should use to address a lady:")
 				.setColor("#1ce6af")
 				.setFooter("Carmilla bot is property of Shisho#7817, no bully please ⎛　　　　´●　　ω　●`　 ⎞")
-				.addField("!hello", "If you're ever feeling lonely because nobody is saying hi to you you can count on me ! <:blobkiss:375218160225222656>")
-				.addField("!say", "If you want to make me say silly things, you can use this~ <:blobkiss:375218160225222656>")
-				.addField("!role", "If you want to add a cool role to the list of those you already have or remove one because it's not good enough for you just use this followed by that specific role. Beware, it is case sen-si-ti-ve~ <:blobkiss:375218160225222656>")
-				.addField("!emote", "If you want to use nice emotes because being restricted to just 50 is no fun <:blobtear:375218561628766210>. Just pick an emote from the extensive [emote list](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), similarily to the previous command this one is case sen-si-ti-ve~ <:blobkiss:375218160225222656>\n\n\n\nI hope this has been helpful to you and that you're gonna have a lot of fun playing with me from now on<:blobpeek:375218261660401664>\n\nOh, I almost forgot that I shouldn't speak about the secret commands & interactions, what a klutz I am teehee~");
+				.addField("!hello", "If you're ever feeling lonely because nobody is saying hi to you you can count on me ! <:blobkiss:375604900119314432>")
+				.addField("!say", "If you want to make me say silly things, you can use this~ <:blobkiss:375604900119314432>")
+				.addField("!role", "If you want to add a cool role to the list of those you already have or remove one because it's not good enough for you just use this followed by that specific role. Beware, it is case sen-si-ti-ve~ <:blobkiss:375604900119314432>")
+				.addField("!emote", "If you want to use nice emotes because being restricted to just 50 is no fun <:blobtear:375218561628766210>. Just pick an emote from the extensive [emote list](https://docs.google.com/spreadsheets/d/1VtGPAa2QJU5IUZdEdJpj4eQVoz4aMSS9yNqCCTsWpEI/edit?usp=sharing), similarily to the previous command this one is case sen-si-ti-ve~ <:blobkiss:375604900119314432>\n\n\n\nI hope this has been helpful to you and that you're gonna have a lot of fun playing with me from now on<:blobpeek:375218261660401664>\n\nOh, I almost forgot that I shouldn't speak about the secret commands & interactions, what a klutz I am teehee~");
 				message.channel.send({ embed: helpembed });
 		}	
 		
